@@ -1,2 +1,2 @@
-# westmac2d
+# WestMac 2D
 2D SDL C++ Engine 
