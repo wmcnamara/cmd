@@ -4,7 +4,7 @@ int main (int argc, char *argv[])
 {
 	//Initialize the game engine
 	Engine* engine = new Engine();
-	Texture tex = engine->LoadTexture("ball.png");
+	SDL_Texture* tex = engine->LoadTexture("ball.png");
 	
 	
 	engine->Quit();

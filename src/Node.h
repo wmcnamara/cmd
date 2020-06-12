@@ -10,11 +10,11 @@ public:
 	//Creates a new node with object data and no parent.
 	Node(Object* obj) : m_obj(obj) {}
 	//Creates a new node with no object data, and a parent.
-	Node(Node* parent) { Engine::Log(std::cout, "Empty Node Created", Engine::LOG_CREATION); }
+	Node(Node* parent) { Debug::Log(std::cout, "Empty Node Created", LOG_CREATION); }
 
 	//Creates an empty node with no object data or parent.
 	Node() {}
-		
+
 	void AddChild(Node* child) { m_children.push_back(child); }
 	void ParentTo(Node* parent) { parent->AddChild(this); }
 
