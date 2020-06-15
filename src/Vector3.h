@@ -9,9 +9,9 @@ class Vector3
 		void operator = (const Vector3& vec) { _x = vec._x; _y = vec._y }
 
 		//Getters
-		const T& x() { return _x; }
-		const T& y() { return _y; }
-		const T& z() { return _z; }
+		const T& x() const { return _x; }
+		const T& y() const { return _y; }
+		const T& z() const { return _z; }
 
 		//Setters
 		const T& x(T val) { return _x = val; }

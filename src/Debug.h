@@ -3,8 +3,8 @@
 #include <string>
 #include "SDL.h"
 
-//Prefaces for a log message. Use the one according to the operation you are using.
-enum LogType { LOG_MESSAGE, LOG_WARNING, LOG_ERROR, LOG_IO, LOG_INIT, LOG_CREATION };
+//Prefaces for a log message. Use the one according to the operation you are using. 
+enum LogType { LOG_MESSAGE, LOG_WARNING, LOG_ERROR, LOG_IO, LOG_INIT, LOG_CREATION, LOG_NONE, LOG_PERFORMANCE };
 
 class Debug
 {

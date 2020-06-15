@@ -27,5 +27,10 @@ void Debug::Log(std::ostream & stream, std::string msg, LogType T)
 		case LOG_CREATION:
 			stream << "Creation: " << msg << std::endl;
 			break;
+		case LOG_PERFORMANCE:
+			stream << "Benchmark: " << msg << std::endl;
+		case LOG_NONE:
+			stream << msg << std::endl;
+			break;
 	}
 }
