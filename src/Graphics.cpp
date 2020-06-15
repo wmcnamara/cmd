@@ -3,7 +3,7 @@
 
 
 //Graphics functions
-SDL_Texture* Graphics::LoadTexture(std::string filePath)
+SDL_Texture& Graphics::LoadTexture(std::string filePath)
 {
 	Debug::Log(std::cout, "Attempting to load texture from: " + filePath, LOG_IO);
 
@@ -15,15 +15,22 @@ SDL_Texture* Graphics::LoadTexture(std::string filePath)
 		throw std::exception("File does not exist");
 	}
 
+	SDL_Texture* texture;
 	//If the texture exists, load it in.
-	SDL_Texture* texture = IMG_LoadTexture(m_renderer, filePath.c_str());
-
+	try 
+	{
+		texture = IMG_LoadTexture(m_renderer, filePath.c_str());
+	}
+	catch (std::exception e) 
+	{
+		Debug::Log(std::cout, "SDL Threw a file exception", LOG_ERROR);
+	}
 	//If the operation fails, log it and return.
 	if (texture == nullptr) { Debug::LogSDLError(); throw std::exception("Texture creation failed"); }
 
 	//Output confirmation, and return the texture.
 	Debug::Log(std::cout, "File loaded successfully!", LOG_IO);
-	return texture;
+	return *texture;
 }
 
 

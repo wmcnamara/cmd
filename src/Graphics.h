@@ -12,7 +12,7 @@ class Graphics
 {
 public:
 	//Loads texture and returns it.
-	SDL_Texture* LoadTexture(std::string filePath);
+	SDL_Texture& LoadTexture(std::string filePath);
 
 private:
 	//Render tree. Anything added to here will be outputted to the screen.
