@@ -18,6 +18,7 @@ namespace WestMac
             {
                 Console.WriteLine("Created in Canada by Weston McNamara.");
                 Console.WriteLine($"Format: {cmdFormat}");
+                Console.WriteLine($"Example: deltat 2020 06 20 2020 03 10");
                 return;
             }
 
@@ -62,6 +63,7 @@ namespace WestMac
             //Calculate delta and display it.
             TimeSpan delta = time1 - time2;
             Console.WriteLine($"Difference: {delta.Days} days");
+            Console.WriteLine($"Difference: {delta.Days / 7} weeks");
         }
     }
 }
