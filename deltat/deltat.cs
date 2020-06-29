@@ -9,36 +9,50 @@ namespace WestMac
 {
     class Program
     {
-        private const string cmdFormat = "YEAR MONTH DAY YEAR MONTH DAY";
+        private const string cmdFormat = "year month date year month date";
 
         static void Main(string[] args)
         {
-            //Display info about program.
-            if (args.Length == 0)
-            {
-                Console.WriteLine("Created in Canada by Weston McNamara.");
-                Console.WriteLine($"Format: {cmdFormat}");
-                Console.WriteLine($"Example: deltat 2020 06 20 2020 03 10");
-                return;
-            }
-
-            //If arguments are wrong
-            if (args.Length != 6)
-            {
-                Console.WriteLine($"Incorrect arguments. Please use this format: {cmdFormat}");
-                Console.WriteLine($"Example: 2020 06 20 2020 03 10");
-                return;
-            }
-
             DateTime time1;
             DateTime time2;
 
             try
             {
-                //Get numbers from the command line arguments
-                time1 = new DateTime(Int32.Parse(args[0]), Int32.Parse(args[1]), Int32.Parse(args[2]));
-                time2 = new DateTime(Int32.Parse(args[3]), Int32.Parse(args[4]), Int32.Parse(args[5]));
-            }
+                switch (args.Length)
+                {
+                    case 0:
+                        /*Display info about the program*/
+                        Console.WriteLine("Created in Canada by Weston McNamara.");
+                        Console.WriteLine($"Format: {cmdFormat}");
+                        Console.WriteLine("You can use the word \"today\" instead of typing it out.");
+                        Console.WriteLine("");
+                        Console.WriteLine($"Example: deltat 2020 06 20 2020 03 10");
+                        Console.WriteLine($"Example: deltat today 2001 06 17");
+                        return;
+                    case 4:
+                        /*Today and a date*/
+                        if (args[0] != "today")
+                        {
+                            Console.WriteLine($"Argument {args[0]} is invalid.");
+                            return;
+                        }
+
+                        time1 = DateTime.Today;
+                        time2 = new DateTime(Int32.Parse(args[1]), Int32.Parse(args[2]), Int32.Parse(args[3]));
+                        break;
+                    case 6:
+                        //Get numbers from the command line arguments
+                        time1 = new DateTime(Int32.Parse(args[0]), Int32.Parse(args[1]), Int32.Parse(args[2]));
+                        time2 = new DateTime(Int32.Parse(args[3]), Int32.Parse(args[4]), Int32.Parse(args[5]));
+                        break;
+                    default:
+                        /*Error*/
+                        Console.WriteLine($"Incorrect arguments. Please use this format: {cmdFormat}");
+                        Console.WriteLine($"Example: 2020 06 20 2020 03 10");
+                        return;
+
+                }
+            }           
             catch (System.FormatException)
             {
                 //If the format is incorrect, return.
