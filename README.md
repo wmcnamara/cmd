@@ -14,6 +14,9 @@ deltat (Time Delta) is a  program that takes 2 dates and gives the difference be
 To use deltat, run deltat.exe with two dates as command line arguments.
 
 Format: deltat year month date year month date. 
-Example: deltat 2020 06 20 2020 03 10
+
+Examples: 
+1. deltat 2020 06 20 2020 03 10
+2. deltat today 1991 02 12
 
 You can also run deltat with no arguments for help.
